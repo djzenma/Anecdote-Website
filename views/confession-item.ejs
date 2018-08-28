@@ -1,0 +1,11 @@
+ <% users.forEach( function (user) { %>
+ <article class="card container list-group-flush mb-5">
+     <div class="card-header row">
+         <img class="col-2 col-lg-1 rounded-circle" style="height: 50px;" src="images/<%= user.img %>" alt="person's img">
+         <h2 class="col" style="font-size: 1.7rem;"><%=user.name%></h2>
+     </div>
+    <div class="card-body">
+        <p class="card-text" style="margin-top: 10px;"><%= user.confession %></p>
+    </div>
+ </article><!--confession item-->
+ <% }) %>
