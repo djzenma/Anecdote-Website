@@ -1,4 +1,15 @@
-/* #2D2D34 */
-header {
-    background-color: #2D2D34;
+/*!* #03120E *! header*/
+/*!* #2D2D34 *! footer*/
+/*!* #E2DCDE *! body*/
+/*   #ADCAD6    font*/
+
+body {
+    background-color: #E2E2E2;
+}
+
+#header {
+    background-color: #03120E;
+}
+#header h1, #header p {
+    color: #E2E2E2;
 }
