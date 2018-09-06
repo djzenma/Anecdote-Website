@@ -2,6 +2,7 @@ var router = require('express').Router();
 var path = require('path');
 var fs = require('fs');
 
+
 var dataPath = path.join(path.dirname(__dirname), 'data', 'data.json');
 
 router.get('/api', function (req, res) {
