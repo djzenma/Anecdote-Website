@@ -11,7 +11,9 @@ router.get('/api', function (req, res) {
 
 router.post('/api', function (req, res) {
     var data = require(dataPath).users;
-    data.push(req.body);
+    reqData = req.body;
+    reqData.img = "img.jpg";
+    data.unshift(reqData);
     var finalData = {users: data};
     fs.writeFile(dataPath, JSON.stringify(finalData), function () {
         res.send(data);
