@@ -1,3 +1,4 @@
+var socket = io.connect('http://localhost:3000');
 
 $(document).ready(function () {
     $("#submit").click( (e) => post(e) );
@@ -5,7 +6,12 @@ $(document).ready(function () {
         console.log("enter pressed");
         post(e);
     });
+    socket.on('posted', function (data) {
+        $('#item').before(data.data);
+        console.log('from socket' + data.data);
+    })
 });
+
 
 function post(e) {
     e.preventDefault();
@@ -25,8 +31,10 @@ function post(e) {
         contentType: 'application/json',
         url: '/api',
         success: function (res) {
-            item = res[0];
-            $('#item').before(createConfession(item.name, item.confession, item.img));
+            let item = res[0];
+            let itemHtml = createConfession(item.name, item.confession, item.img);
+            // $('#item').before(itemHtml);
+            socket.emit('posted', { data: itemHtml });
         }
     });
 }
